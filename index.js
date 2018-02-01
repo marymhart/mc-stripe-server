@@ -100,7 +100,7 @@ class StripeInterface {
     });
   }
 
-  function updateSubscriptionPlan(subscriptionId, subscription, newPlanId) {
+  updateSubscriptionPlan(subscriptionId, subscription, newPlanId) {
    return new Promise((resolve, reject) => {
      this.api.subscriptions.update(subscriptionId, {
        items: [{
