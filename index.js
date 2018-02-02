@@ -122,6 +122,15 @@ class StripeInterface {
       });
     });
   }
+
+  removeSubscriptionAtEnd(subscriptionId) {
+    return new Promise((resolve, reject) => {
+      this.api.subscriptions.del(subscriptionId, {at_period_end: true}, (err, confirmation) => {
+        if(err) return reject(err);
+        return resolve(confirmation);
+      });
+    });
+  }
   /**
    * Gets the subscriptions statuses. Returns an array of objects with subscription id as key and its status.
    * @param {String} subscriptionId
