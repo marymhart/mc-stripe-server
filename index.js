@@ -241,7 +241,9 @@ class StripeInterface {
       this.api.plans.create({
         amount: amount,
         interval: interval,
-        name: name,
+        product: {
+          name: name
+        },
         currency: 'usd',
         id: random.generate({length: 12})
       }, (err, plan) => {
